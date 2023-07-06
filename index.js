@@ -124,6 +124,7 @@ let count = 0
         increament.innerHTML="Increament"
         div.append(increament)
         let result = document.createElement("h2")
+        result.id="result"
         result.innerHTML=0
         div.append(result)
           let reset = document.createElement("button")
