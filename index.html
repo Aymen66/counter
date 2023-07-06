@@ -1,18 +1,35 @@
 <html>
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <div class="main">
+        <div id="main" class="main">
             <h1>Counter</h1>
+            <div class="form"><input id="input-el" placeholder="add an item to count"/> 
+                <button id="save-btn" onclick="save()">Save</button><br>
+            </div>
+            <!-- <button id="delete-btn" onclick="deleteBtn()">delete</button> -->
+
+            <h2>
+                Saved Entries: 
+
+            </h2>
+            <table id="save-el">
+            </table> 
+            <div id="CountDiv">
+
+            </div>
+
+            <!-- 
         <h2 id="count-el">0</h2>
         <button id="increment-btn" onclick="increment()">INCREMENT</button>
         <button id="save-btn" onclick="save()">SAVE</button>
-        <p id="save-el">Previous entries: </p>
+        <p id="save-el">Previous entries: </p> -->
         </div>
         <script src="index.js">
-            nnerText
+            
         </script>
     </body>
 </html>

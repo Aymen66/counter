@@ -1,15 +1,180 @@
-let saveEl = document.getElementById("save-el")
-let countEl = document.getElementById("count-el")
-let count = 0
 
-function increment() {
-    count += 1
-    countEl.textContent = count
-}
+
+let items = []
+
 
 function save() {
-    let countStr = count + " - "
-    saveEl.textContent += countStr
-    countEl.textContent = 0
-    count = 0
+
+let idNo = items.length +1;
+
+
+
+  items.push({
+    inputEl:document.getElementById("input-el").value,
+    id: idNo
+
+  })
+localStorage.setItem('items', JSON.stringify(items));
+displayImage()
 }
+
+
+  let DataFromLocalStorage = JSON.parse(localStorage.getItem('items'));
+
+  
+
+if (DataFromLocalStorage) {
+items = DataFromLocalStorage
+}
+else {
+  console.log("In nodeJS");
+}
+
+function displayImage() {
+let savedEl = document.getElementById("save-el");
+
+    let liEl= ""
+    for (let i = 0; i<items.length; i++){
+     
+liEl += `
+
+
+
+<tr >
+<div id="divTr">
+<span id="addCount-btn" onclick="createDiv()"> ${items[i].inputEl}</span><span> <button id="delete-btn" onclick="removeItem(${items[i].id})"><i class="fa fa-trash"></i> </button></span>  
+
+</div>
+</tr>
+
+
+`
+
+    }
+    savedEl.innerHTML =liEl
+    
+   }displayImage()
+
+   function removeItem(itemId) {
+    // Find the index of the item with the provided itemId
+    const index = items.findIndex(item => item.id === itemId);
+    
+    // If the item exists in the array, remove it
+    if (index !== -1) {
+      items.splice(index, 1);
+      localStorage.setItem('items', JSON.stringify(items));
+      const div = document.getElementById("div");
+      if (div) {
+        div.parentNode.removeChild(div);
+        
+      }
+      displayImage();
+      quit = false;
+
+    }
+  }
+
+  let quit = false;
+
+  function createDiv(itemId) {
+    if(quit) {
+      
+      return;
+   } 
+   quit = true;
+let main = document.getElementById("CountDiv")
+let count = 0
+
+    // Find the index of the item with the provided itemId
+    const index = items.findIndex(item => item.inputEl === itemId);
+    
+    // If the item exists in the array, remove it
+    if (index ) {
+      let div = document.createElement("div")
+      div.id="div"
+      div.style.padding="10px"
+      // countEl.innerHTML="red"
+      localStorage.setItem('items', JSON.stringify(items));
+      displayImage();
+      main.append(div)
+      if(div){
+        let increament = document.createElement("button")
+        increament.id="increament"
+        increament.innerHTML="Increament"
+        div.append(increament)
+        let result = document.createElement("h2")
+        result.innerHTML=0
+        div.append(result)
+          let reset = document.createElement("button")
+          reset.innerHTML="reset"
+          reset.id="reset"
+          reset.style.display= "none"
+  
+          div.append(reset)
+          reset.addEventListener("click", resetCount);
+        
+        
+        increament.addEventListener("click", increment);
+        
+        function increment() {
+
+          count += 1
+          result.innerHTML = count
+          if(count > 0 ){
+          reset.style.display= "block"
+            
+          }
+       
+      }
+      
+      function resetCount() {
+        
+        count = 0;
+        result.innerHTML = count
+        reset.style.display= "none"
+
+      }
+     
+      }
+     
+    }
+    
+
+  }
+  
+  //  function removeItem(){
+  //   for (let i = 0; i < items.length; i++){
+  //     if(items[i].id){
+  //       alert("touched")
+  //          items.pop();
+
+
+  //     }
+
+  //   }
+    // var filt = items.filter((a,i)=>{
+    //       if(del== a.id){
+    //         items.splice(i,1);
+    //         displayImage();
+    //         localStorage.setItem("items", JSON.stringify(items) )
+      
+    //       }
+    //     })
+    
+    // }
+  //  source.forEach((item, i) => {
+  //   item.id = i + 1;
+  // });
+
+// let countEl = document.getElementById("count-el")
+// let count = 0
+
+
+
+// function save() {
+//     let countStr = count + " - "
+//     saveEl.textContent += countStr
+//     countEl.textContent = 0
+//     count = 0
+// }
+// // 
