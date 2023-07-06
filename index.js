@@ -4,27 +4,46 @@ let items = []
 
 
 function save() {
+   let  inputEl =document.getElementById("input-el");
 
-let idNo = items.length +1;
+if(inputEl.value){
+    let idNo = items.length +1;
 
 
 
   items.push({
-    inputEl:document.getElementById("input-el").value,
+    inputEl: inputEl.value,
     id: idNo
 
   })
+  inputEl.value = ""
+
 localStorage.setItem('items', JSON.stringify(items));
 displayImage()
+window.location.reload();
+
+}
+
 }
 
 
   let DataFromLocalStorage = JSON.parse(localStorage.getItem('items'));
-
-  
+let dataNew = JSON.parse(localStorage.getItem('items'))
+  function entry(){
+    for(let i =0; i<dataNew.length; i++){
+        if(dataNew[i] !==null){
+            document.getElementById("noEntry").innerHTML="Previous Entries:"
+            // document.getElementById("noEntry").style.display="none"
+        } 
+        
+    }
+   
+    
+}entry()
 
 if (DataFromLocalStorage) {
 items = DataFromLocalStorage
+
 }
 else {
   console.log("In nodeJS");
@@ -72,6 +91,8 @@ liEl += `
       quit = false;
 
     }
+window.location.reload();
+
   }
 
   let quit = false;
@@ -141,7 +162,7 @@ let count = 0
     
 
   }
-  
+
   //  function removeItem(){
   //   for (let i = 0; i < items.length; i++){
   //     if(items[i].id){
