@@ -32,7 +32,7 @@ let dataNew = JSON.parse(localStorage.getItem('items'))
   function entry(){
     for(let i =0; i<dataNew.length; i++){
         if(dataNew[i] !==null){
-            document.getElementById("noEntry").innerHTML="Previous Entries:"
+            document.getElementById("noEntry").innerHTML="Saved Entries:"
             // document.getElementById("noEntry").style.display="none"
         } 
         
