@@ -75,7 +75,6 @@ input{
     color: black;
     padding: 10px;
     border-radius: 5px;
-    
 }
 #increament:focus ,#reset:focus{
     background-color: black;
@@ -97,7 +96,7 @@ input{
 }
 #result{
     margin: 20px 10px;
-    font-size: 40px;
+    font-size: 40;
     font-weight: bold;
 
 
@@ -169,9 +168,19 @@ h1 {
     margin: 30px 0px 0px 0px;
 
 }
-#increament, #reset{
-   
-    font-size: medium;
+#reset{
+    font-size: 20px;
+    margin-top: 10px;
 }
+#increament{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+#result{
+    margin: 20px 10px;
+    font-size: 40;
+    font-weight: bold;
 
+
+}
 }
