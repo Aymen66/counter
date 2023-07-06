@@ -168,19 +168,8 @@ h1 {
     margin: 30px 0px 0px 0px;
 
 }
-#reset{
-    font-size: 20px;
-    margin-top: 10px;
+#increament, #reset{
+    font-size: medium;
 }
-#increament{
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-#result{
-    margin: 20px 10px;
-    font-size: 40;
-    font-weight: bold;
 
-
-}
 }
