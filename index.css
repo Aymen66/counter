@@ -56,6 +56,10 @@ span{
 
 
 }
+#InputElName{
+    color: white;
+    margin-bottom: 30px;
+}
 input{
     padding: 10px;
 }

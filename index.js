@@ -61,7 +61,7 @@ liEl += `
 
 <tr >
 <div id="divTr">
-<span id="addCount-btn" onclick="createDiv()"> ${items[i].inputEl}</span><span> <button id="delete-btn" onclick="removeItem(${items[i].id})"><i class="fa fa-trash"></i> </button></span>  
+<span id="addCount-btn" onclick="createDiv(${i})"> ${items[i].inputEl}</span><span> <button id="delete-btn" onclick="removeItem(${items[i].id})"><i class="fa fa-trash"></i> </button></span>  
 
 </div>
 </tr>
@@ -97,7 +97,7 @@ window.location.reload();
 
   let quit = false;
 
-  function createDiv(itemId) {
+  function createDiv(index) {
     if(quit) {
       
       return;
@@ -106,18 +106,23 @@ window.location.reload();
 let main = document.getElementById("CountDiv")
 let count = 0
 
-    // Find the index of the item with the provided itemId
-    const index = items.findIndex(item => item.inputEl === itemId);
-    
-    // If the item exists in the array, remove it
-    if (index ) {
+  
       let div = document.createElement("div")
-      div.id="div"
+      div.id= "div"
       div.style.padding="10px"
       // countEl.innerHTML="red"
       localStorage.setItem('items', JSON.stringify(items));
       displayImage();
       main.append(div)
+      let InputElName = document.createElement("h1")
+      InputElName.innerHTML = items[index].inputEl
+    //   div.textContent=items[index].inputEl
+      // if (items[index].hasOwnProperty("inputEl")) {
+      //   InputElName.innerHTML = items[index]=.inputEl; // Set the value of InputElName to the name property of the item at the given index
+      // }
+      InputElName.id= "InputElName"
+      div.append(InputElName)
+     
       if(div){
         let increament = document.createElement("button")
         increament.id="increament"
@@ -159,7 +164,7 @@ let count = 0
      
       }
      
-    }
+    
     
 
   }
