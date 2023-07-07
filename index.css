@@ -64,6 +64,7 @@ input{
     padding: 10px;
 }
 #div{
+    display: block;
     /* background-color: white; */
     color: white;
     /* background-color: black; */
@@ -74,11 +75,15 @@ input{
     padding: 10px;
     border-radius: 5px;
 } */
-#increament, #reset{
+#increament, #reset, #close{
     background-color: white;
     color: black;
     padding: 10px;
     border-radius: 5px;
+}
+#close{
+    float: left;
+  
 }
 #increament:focus ,#reset:focus{
     background-color: black;
@@ -175,5 +180,7 @@ h1 {
 #increament, #reset{
     font-size: medium;
 }
-
+#close{
+    font-size: 30px;
+}
 }

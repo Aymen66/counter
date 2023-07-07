@@ -114,6 +114,22 @@ let count = 0
       localStorage.setItem('items', JSON.stringify(items));
       displayImage();
       main.append(div)
+      let close = document.createElement("button")
+      close.id="close"
+      close.innerHTML="x"
+      div.append(close)
+      close.addEventListener("click", hideNewlyCreatedDiv);
+
+      function hideNewlyCreatedDiv() {
+        
+          div.style.display = "none";
+window.location.reload();
+
+      
+        // return  document.removeEventListener("touchstart", hideNewlyCreatedDiv);
+
+      }
+     
       let InputElName = document.createElement("h1")
       InputElName.innerHTML = items[index].inputEl
     //   div.textContent=items[index].inputEl
@@ -122,6 +138,7 @@ let count = 0
       // }
       InputElName.id= "InputElName"
       div.append(InputElName)
+   
      
       if(div){
         let increament = document.createElement("button")
@@ -168,6 +185,10 @@ let count = 0
     
 
   }
+// div.addEventListener("click", resetCount);
+
+// When the user clicks anywhere outside of the modal, close it
+
 
   //  function removeItem(){
   //   for (let i = 0; i < items.length; i++){
